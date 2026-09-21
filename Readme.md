@@ -15,6 +15,12 @@
 
 - **Nomes dos alunos e RGM**
 
+- Diego
+- Luiz
+- Nicolas Vieira de Lima 47212021
+- Renan Caio
+
+
 ## 1. Caracterização da Organização
 *(vale 7,5% — Dimensão Conceitual)*
 
