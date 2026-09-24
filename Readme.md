@@ -18,14 +18,15 @@
 - Diego
 - Luiz
 - Nicolas Vieira de Lima 47212021
-- Renan Caio
+- Renan Caio de Lima  46915575
 
 
 ## 1. Caracterização da Organização
 *(vale 7,5% — Dimensão Conceitual)*
 
-- **Nome e natureza da organização:** *qual organização real o grupo escolheu (com acesso garantido para pesquisa de campo) — pode ser uma empresa (livraria, lanchonete, pet shop), uma ONG, uma associação comunitária ou outra instituição.*
-- **Contexto e porte:** *com ou sem fins lucrativos; tamanho da operação; número de pessoas envolvidas (funcionários, voluntários, membros, fiéis); volume de atividades (vendas, atendimentos, doações, rituais, eventos).*
+- **Nome e natureza da organização:** Ponto A – Restaurante e Pizzaria.
+
+- **Contexto e porte:** *A empresa possui uma equipe estimada entre 40 e 60 funcionários, atuando em diferentes setores e ambientes do estabelecimento. Sendo um resraurante com fins lucrativos e vendas*
 - **Problemas e necessidades identificados:** *qual é a "crise operacional" — o que está desorganizado hoje (planilhas soltas, papel, falta de controle de estoque/doações/cadastros, etc.)?*
 - **Justificativa da escolha:** *por que essa organização foi escolhida e por que ela é um bom caso para o projeto?*
 - **Evidências da organização:** *comprove que a organização existe e que o grupo teve acesso a ela — ex.: fotos do local/da visita, link da organização no Google (Google Maps/Google Meu Negócio, site, rede social), endereço completo e forma de contato (telefone, e-mail, responsável pela organização).*
@@ -105,22 +106,8 @@ Para cada entidade identificada, liste:
 ---
 
 ## 9. Uso de Inteligência Artificial
-*(documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, escrita, organização de ideias ou revisão de texto)*
 
-Se o grupo usou alguma ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc.) em qualquer parte do trabalho, registre **para cada uso relevante**:
-
-| Item | O que registrar |
-|------|------------------|
-| **Ferramenta e etapa** | Qual IA foi usada e em qual parte do trabalho (ex.: pesquisa sobre o setor da organização, redação do README, organização dos requisitos, revisão ortográfica/gramatical). |
-| **Motivação** | Por que o grupo recorreu à IA nesse ponto específico. |
-| **Prompt(s) utilizados** | Texto exato (ou muito próximo) do que foi perguntado/pedido à IA. |
-| **Resposta recebida** | Resumo ou trecho relevante da resposta da IA. |
-| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como (ex.: comparação com o que foi observado na visita de campo). |
-| **Trechos rejeitados ou corrigidos** | O que da resposta da IA foi descartado, editado ou corrigido manualmente, e por quê. |
-| **Justificativa da escolha final** | Por que o grupo manteve, adaptou ou rejeitou o que a IA sugeriu. |
-| **Reflexão crítica** | Limites, vieses ou erros identificados no uso da IA nessa etapa (ex.: informação desatualizada, alucinação, generalização incorreta sobre o tipo de organização). |
-
-*Se o grupo não usou nenhuma ferramenta de IA, declare isso explicitamente nesta seção.*
+**Não Utilizamos**
 
 ---
 
