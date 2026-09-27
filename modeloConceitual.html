@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Modelo Conceitual</title>
+<style>
+  :root {
+    color-scheme: light;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #1f2937;
+    background: #f4f6f8;
+  }
+
+  body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 20px;
+    background: #ffffff;
+  }
+
+  section {
+    margin: 28px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border: 1px solid #d7dee7;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(31, 41, 55, 0.06);
+  }
+
+  th,
+  td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5eaf0;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    color: #ffffff;
+    background: #245b8f;
+    font-size: 0.9rem;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #f7f9fb;
+  }
+
+  tbody tr:hover {
+    background: #eaf3fb;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  @media (max-width: 720px) {
+    body {
+      padding: 20px 12px;
+    }
+
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td {
+      display: block;
+    }
+
+    thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    tr {
+      padding: 10px 0;
+      border-bottom: 1px solid #d7dee7;
+    }
+
+    tr:last-child {
+      border-bottom: 0;
+    }
+
+    td {
+      display: grid;
+      grid-template-columns: minmax(120px, 35%) 1fr;
+      gap: 12px;
+      padding: 8px 12px;
+      border-bottom: 0;
+    }
+
+    td::before {
+      content: attr(data-label);
+      color: #245b8f;
+      font-weight: 700;
+    }
+  }
+</style>
+</head>
+<body>
+
+    <h1>Modelo Conceitual</h1>
+
+  <section>
+    <h2>Entidades reconhecidas</h2>
+    <ul>
+      <li><b>CLIENTE</b> — pessoa física atendida pelo restaurante; reconhecida porque é quem inicia e participa das visitas, precisando de identificação própria (CPF) independente da mesa ou do pedido.</li> <br>
+      <li><b>MESA</b> — posto físico do salão; reconhecida porque existe e é numerada mesmo sem nenhum cliente presente, e é reaproveitada por diferentes visitas ao longo do dia.</li> <br>
+      <li><b>COMANDA_ACESSO</b> — comanda ou pulseira de controle de entrada/saída; reconhecida porque seu ciclo de vida (emissão → uso → baixa) é independente do conteúdo do pedido.</li> <br>
+      <li><b>VISITA</b> — o evento de atendimento em si, do check-in ao pagamento; reconhecida porque é o elo que amarra cliente(s), mesa(s), comanda, pedidos e pagamentos de uma mesma passagem pelo restaurante.</li> <br>
+      <li><b>FUNCIONARIO</b> — pessoa que opera o sistema (garçom, caixa etc.); reconhecida porque suas ações (atender pedido, arrecadar pagamento) precisam de responsável identificado.</li> <br>
+      <li><b>CATEGORIA_PRATO</b> — agrupamento do cardápio; reconhecida porque organiza os pratos para navegação e relatórios, independente de qualquer prato específico.</li> <br>
+      <li><b>PRATO</b> — item do cardápio; reconhecida porque tem preço e descrição próprios, existindo mesmo antes de ser pedido.</li> <br>
+      <li><b>PEDIDO</b> — o conjunto de pratos solicitados numa visita; reconhecido porque tem ciclo de status próprio (criado → confirmado → na cozinha → pronto → entregue).</li> <br>
+      <li><b>PAGAMENTO</b> — evento de quitação de uma visita; reconhecido porque pode haver mais de um por visita (divisão de conta) e tem forma/local próprios.</li> <br>
+      
+    </ul>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>CLIENTE</h2>
+    <table>
+      <thead><tr><th>Atributo</th><th>Descrição</th><th>Relacionamentos (importantes)</th><th>Restrições / políticas</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Atributo">ID_CLIENTE</td><td data-label="Descrição">Identificador único do cliente</td><td data-label="Relacionamentos">N:N com VISITA (Realiza)</td><td data-label="Restrições">Chave primária</td></tr>
+        <tr><td data-label="Atributo">NM_CLIENTE</td><td data-label="Descrição">Nome completo do cliente</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">ID_CPF</td><td data-label="Descrição">Documento de identificação civil</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Único; dado pessoal (LGPD)</td></tr>
+        <tr><td data-label="Atributo">DT_NASCIMENTO</td><td data-label="Descrição">Data de nascimento</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">DS_TELEFONE</td><td data-label="Descrição">Telefone de contato</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>MESA</h2>
+    <table>
+      <thead><tr><th>Atributo</th><th>Descrição</th><th>Relacionamentos (importantes)</th><th>Restrições / políticas</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Atributo">ID_MESA</td><td data-label="Descrição">Identificador da mesa</td><td data-label="Relacionamentos">N:N com VISITA (Recebe)</td><td data-label="Restrições">Chave primária</td></tr>
+        <tr><td data-label="Atributo">ID_NUMERO_MESA</td><td data-label="Descrição">Número físico impresso na mesa</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Único</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>COMANDA_ACESSO</h2>
+    <table>
+      <thead><tr><th>Atributo</th><th>Descrição</th><th>Relacionamentos (importantes)</th><th>Restrições / políticas</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Atributo">ID_COMANDA</td><td data-label="Descrição">Identificador da comanda/pulseira</td><td data-label="Relacionamentos">1:1 com VISITA (Identifica)</td><td data-label="Restrições">Chave primária</td></tr>
+        <tr><td data-label="Atributo">ID_CODIGO_ACESSO</td><td data-label="Descrição">Código impresso/gravado, conferido na saída</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Único</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>VISITA</h2>
+    <p>Eixo do modelo: liga cliente(s), mesa(s), comanda, pedidos e pagamentos de uma mesma passagem pelo restaurante.</p>
+    <table>
+      <thead><tr><th>Atributo</th><th>Descrição</th><th>Relacionamentos (importantes)</th><th>Restrições / políticas</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Atributo">ID_VISITA</td><td data-label="Descrição">Identificador da visita</td><td data-label="Relacionamentos">N:N Cliente · N:N Mesa · 1:1 Comanda · 1:N Pedido · 1:N Pagamento</td><td data-label="Restrições">Chave primária</td></tr>
+        <tr><td data-label="Atributo">ID_COMANDA</td><td data-label="Descrição">Comanda/pulseira vinculada</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">FK única (garante o 1:1)</td></tr>
+        <tr><td data-label="Atributo">DT_CHEGADA</td><td data-label="Descrição">Instante de check-in na recepção</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">DT_SAIDA</td><td data-label="Descrição">Instante de encerramento da visita</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Opcional (ausente até fechar)</td></tr>
+        <tr><td data-label="Atributo">TP_STATUS_VISITA</td><td data-label="Descrição">Situação corrente</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">aberta ou fechada</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>FUNCIONARIO</h2>
+    <table>
+      <thead><tr><th>Atributo</th><th>Descrição</th><th>Relacionamentos (importantes)</th><th>Restrições / políticas</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Atributo">ID_FUNCIONARIO</td><td data-label="Descrição">Identificador do funcionário</td><td data-label="Relacionamentos">1:N Pedido (Atende) · N:N Pagamento (Arrecada)</td><td data-label="Restrições">Chave primária</td></tr>
+        <tr><td data-label="Atributo">NM_FUNCIONARIO</td><td data-label="Descrição">Nome completo do funcionário</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">TP_CARGO</td><td data-label="Descrição">Papel exercido no sistema</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Categorização fechada (garçom, caixa, etc.)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>CATEGORIA_PRATO</h2>
+    <table>
+      <thead><tr><th>Atributo</th><th>Descrição</th><th>Relacionamentos (importantes)</th><th>Restrições / políticas</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Atributo">ID_CATEGORIA</td><td data-label="Descrição">Identificador da categoria</td><td data-label="Relacionamentos">N:N com PRATO (Classifica)</td><td data-label="Restrições">Chave primária</td></tr>
+        <tr><td data-label="Atributo">NM_CATEGORIA</td><td data-label="Descrição">Nome da categoria do cardápio</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>PRATO</h2>
+    <table>
+      <thead><tr><th>Atributo</th><th>Descrição</th><th>Relacionamentos (importantes)</th><th>Restrições / políticas</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Atributo">ID_PRATO</td><td data-label="Descrição">Identificador do prato</td><td data-label="Relacionamentos">N:N Categoria (Classifica) · N:N Pedido (Contém)</td><td data-label="Restrições">Chave primária</td></tr>
+        <tr><td data-label="Atributo">NM_PRATO</td><td data-label="Descrição">Nome do prato no cardápio</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">DS_DESCRICAO</td><td data-label="Descrição">Composição exibida ao cliente</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">VL_PRECO</td><td data-label="Descrição">Preço de venda vigente</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">DS_IMAGEM_URL</td><td data-label="Descrição">Foto do prato</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Opcional</td></tr>
+        <tr><td data-label="Atributo">TP_STATUS_PRATO</td><td data-label="Descrição">Situação corrente</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">ativo, esgotado ou inativo</td></tr>
+        <tr><td data-label="Atributo">IN_REQUER_BARMAN</td><td data-label="Descrição">Preparo exige o barman</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Booleano</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>PEDIDO</h2>
+    <p>O avanço para a cozinha só ocorre após confirmação de um garçom — regra de negócio central do sistema.</p>
+    <table>
+      <thead><tr><th>Atributo</th><th>Descrição</th><th>Relacionamentos (importantes)</th><th>Restrições / políticas</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Atributo">ID_PEDIDO</td><td data-label="Descrição">Identificador do pedido</td><td data-label="Relacionamentos">1:N Visita (Gera) · 1:N Funcionário (Atende) · N:N Prato (Contém)</td><td data-label="Restrições">Chave primária</td></tr>
+        <tr><td data-label="Atributo">ID_VISITA</td><td data-label="Descrição">Visita à qual o pedido pertence</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">FK obrigatória</td></tr>
+        <tr><td data-label="Atributo">TP_STATUS_PEDIDO</td><td data-label="Descrição">Situação corrente</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Fluxo obrigatório: garçom confirma antes da cozinha</td></tr>
+        <tr><td data-label="Atributo">DT_CRIACAO</td><td data-label="Descrição">Instante de criação pelo cliente</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">DT_CONFIRMACAO</td><td data-label="Descrição">Confirmação do garçom</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Opcional</td></tr>
+        <tr><td data-label="Atributo">DT_ENVIO_COZINHA</td><td data-label="Descrição">Envio à cozinha</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Opcional</td></tr>
+        <tr><td data-label="Atributo">DT_PRONTO</td><td data-label="Descrição">Preparo concluído</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Opcional</td></tr>
+        <tr><td data-label="Atributo">DT_ENTREGA</td><td data-label="Descrição">Entrega ao cliente</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Opcional</td></tr>
+        <tr><td data-label="Atributo">ID_FUNCIONARIO</td><td data-label="Descrição">Garçom responsável pela validação</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">FK obrigatória</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>PAGAMENTO</h2>
+    <table>
+      <thead><tr><th>Atributo</th><th>Descrição</th><th>Relacionamentos (importantes)</th><th>Restrições / políticas</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Atributo">ID_PAGAMENTO</td><td data-label="Descrição">Identificador do pagamento</td><td data-label="Relacionamentos">1:N Visita (Quita) · N:N Funcionário (Arrecada)</td><td data-label="Restrições">Chave primária</td></tr>
+        <tr><td data-label="Atributo">ID_VISITA</td><td data-label="Descrição">Visita quitada por este pagamento</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">FK obrigatória</td></tr>
+        <tr><td data-label="Atributo">VL_TOTAL</td><td data-label="Descrição">Valor total quitado</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">forma_pagamento</td><td data-label="Descrição">Forma de quitação utilizada</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Escolha única: dinheiro, crédito, débito, PIX ou vale</td></tr>
+        <tr><td data-label="Atributo">local</td><td data-label="Descrição">Local do recebimento</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Dinheiro: garçom ou caixa; demais formas: só caixa</td></tr>
+        <tr><td data-label="Atributo">DT_PAGAMENTO</td><td data-label="Descrição">Instante do pagamento</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">QT_PERCENTUAL_SERVICO</td><td data-label="Descrição">Taxa de serviço aplicada</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">Obrigatório</td></tr>
+        <tr><td data-label="Atributo">TP_STATUS_PAGAMENTO</td><td data-label="Descrição">Situação corrente</td><td data-label="Relacionamentos">—</td><td data-label="Restrições">confirmado ou estornado</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</body>
+</html>
