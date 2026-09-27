@@ -458,7 +458,8 @@ Leitura, inserção e atualização de CLIENTE ficam restritas à recepção e �
 - Por fim, contem liga pedido direto a prato como N:N sem nenhuma bolinha própria — a associação entre os dois é representada só pela relação em si, cobrindo quais pratos compõem quais pedidos sem introduzir uma entidade extra no diagrama conceitual.
 ---
 
-## 9. Uso de Inteligência Artificial
+## 9. Uso de Inteligência Artificial   
+
 
 **Não Utilizamos IA**
 
