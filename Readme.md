@@ -445,7 +445,7 @@ Leitura, inserção e atualização de CLIENTE ficam restritas à recepção e �
 ## 7. Diagrama Entidade-Relacionamento (DER)
 
 
-[DER](DER.pdf)
+[DER](DER.jpg)
 
 ---
 
