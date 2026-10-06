@@ -25,7 +25,13 @@
   A escolha do Ponto A para o desenvolvimento do projeto ocorreu principalmente pela facilidade de acesso às informações e ao ambiente da empresa, já que um dos integrantes do grupo trabalha no estabelecimento e pode contribuir diretamente com o levantamento de dados e a compreensão dos processos internos. Essa proximidade permite identificar problemas reais enfrentados pela empresa e desenvolver uma solução baseada em necessidades concretas. Além disso, o Ponto A apresenta potencial para a aplicação de soluções tecnológicas que possam gerar valor para o negócio. O projeto também representa uma oportunidade para colocar em prática os conhecimentos adquiridos durante a formação acadêmica, ampliar a experiência profissional e desenvolver uma solução para um problema real. Futuramente, caso os resultados sejam positivos, a solução poderá ser aprimorada e adaptada para outros estabelecimentos do mesmo segmento.
 
 
-- **Evidências da organização:** [Maps](https://maps.app.goo.gl/oVm8L7GaAggko4Ck9), [Site](https://ponto-a.cluvi.com.br), Contato: 01126722292, Endereço: Rua Dante Pellacani, 192 - Vila Reg. Feijó, São Paulo - SP, 03334-070
+- **Evidências da organização:** 
+
+- [Foto](FotoDoEstabelecimento.jpeg)
+- [Maps](https://maps.app.goo.gl/oVm8L7GaAggko4Ck9) 
+- [Site](https://ponto-a.cluvi.com.br)
+- Contato: 01126722292
+- Endereço: Rua Dante Pellacani, 192 - Vila Reg. Feijó, São Paulo - SP, 03334-070
 
 ---
 
